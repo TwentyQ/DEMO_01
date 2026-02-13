@@ -1,10 +1,423 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Main page of site</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Анастасия Данилова · резюме</title>
+  <!-- Google Fonts for modern, clean typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (free) for subtle icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* reset & base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(145deg, #e0e5ec 0%, #f0f4fa 100%);
+      font-family: 'Inter', sans-serif;
+      padding: 2rem 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: #1e2b3c;
+    }
+
+    /* card / paper effect */
+    .resume-card {
+      max-width: 1000px;
+      width: 100%;
+      background: white;
+      border-radius: 32px;
+      box-shadow: 20px 20px 40px rgba(0,0,0,0.05), -10px -10px 30px rgba(255,255,255,0.7);
+      display: grid;
+      grid-template-columns: 0.95fr 2.1fr;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    /* ---------- LEFT PANEL (elegant dark) ---------- */
+    .left-panel {
+      background: #1f2a40;
+      color: #f0f3fa;
+      padding: 2rem 1.8rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+    }
+
+    .name-title {
+      border-bottom: 2px solid rgba(255,255,255,0.15);
+      padding-bottom: 1.2rem;
+    }
+
+    .name {
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      line-height: 1.1;
+      margin-bottom: 0.4rem;
+      word-break: break-word;
+      color: white;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(2px);
+      padding: 0.3rem 0.9rem;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #cdd9ff;
+      border: 0.5px solid rgba(255,255,255,0.2);
+      margin-top: 0.5rem;
+    }
+
+    /* section headers in left panel */
+    .section-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: #a6b9e0;
+      margin-bottom: 1.1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      padding-bottom: 0.5rem;
+    }
+
+    /* contact / languages / core skills */
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 0.7rem;
+      font-size: 0.85rem;
+      color: #e0e7ff;
+    }
+
+    .contact-item i {
+      width: 1.1rem;
+      text-align: center;
+      color: #a6b9e0;
+    }
+
+    .skill-tag {
+      background: rgba(255,255,255,0.06);
+      padding: 0.4rem 0.9rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: #f0f3fa;
+      border: 0.5px solid rgba(255,255,255,0.08);
+      margin-bottom: 0.5rem;
+      display: inline-block;
+    }
+
+    .lang-item {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      color: #e0e7ff;
+      margin-bottom: 0.6rem;
+    }
+
+    .lang-name {
+      font-weight: 400;
+    }
+
+    .lang-level {
+      font-size: 0.75rem;
+      background: rgba(255,255,255,0.08);
+      padding: 0.15rem 0.6rem;
+      border-radius: 24px;
+    }
+
+    /* ---------- RIGHT PANEL (clean light) ---------- */
+    .right-panel {
+      background: white;
+      padding: 2rem 2.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+    }
+
+    .right-section-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 2.2px;
+      color: #2a3a58;
+      border-bottom: 2px solid #f0f3fa;
+      padding-bottom: 0.5rem;
+      margin-bottom: 0.2rem;
+    }
+
+    /* profile text */
+    .profile-text {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #334155;
+      font-weight: 400;
+    }
+
+    /* skill cards in right panel — visual & clean */
+    .skill-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .skill-chip {
+      background: #f1f5f9;
+      padding: 0.6rem 1.3rem;
+      border-radius: 48px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: #0f1a2e;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 1px solid #e9edf4;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.01);
+    }
+
+    .skill-chip i {
+      color: #4066b0;
+    }
+
+    .skill-chip strong {
+      font-weight: 700;
+      margin-right: 0.2rem;
+    }
+
+    /* education / self-learning */
+    .edu-item {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1rem;
+    }
+
+    .edu-title {
+      font-weight: 700;
+      font-size: 1rem;
+      color: #1e2b3c;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .edu-meta {
+      font-size: 0.8rem;
+      color: #5f6c80;
+      margin-left: 2rem;
+      margin-top: 0.15rem;
+    }
+
+    .project-item {
+      margin-bottom: 1.3rem;
+    }
+
+    .project-name {
+      font-weight: 700;
+      font-size: 0.98rem;
+      color: #1f2a40;
+      display: flex;
+      align-items: baseline;
+    }
+
+    .project-desc {
+      font-size: 0.88rem;
+      color: #475569;
+      margin-left: 0.2rem;
+      margin-top: 0.25rem;
+      line-height: 1.5;
+    }
+
+    hr {
+      border: 0;
+      border-top: 1px solid #eaf0f6;
+      margin: 0.4rem 0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* responsiveness */
+    @media (max-width: 750px) {
+      .resume-card {
+        grid-template-columns: 1fr;
+      }
+      .left-panel {
+        padding: 1.8rem;
+      }
+    }
+  </style>
 </head>
 <body>
-<h1>Hello, world!</h1>
+  <div class="resume-card">
+
+    <!-- LEFT PANEL – name, contact, core skills, languages -->
+    <div class="left-panel">
+      <div class="name-title">
+        <div class="name">Анастасия<br>Данилова</div>
+        <span class="badge"><i class="fas fa-terminal" style="margin-right: 6px;"></i> начинающий разработчик</span>
+      </div>
+
+      <!-- contact -->
+      <div>
+        <div class="section-title"><i class="fas fa-address-card" style="margin-right: 8px;"></i> контакты</div>
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <span>nastdan07@mail.me</span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-phone-alt"></i>
+          <span>+7 (911) 192-05-05</span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>Санкт-Петербург, Россия</span>
+        </div>
+        <div class="contact-item">
+          <i class="fab fa-github"></i>
+          <span>github.com/twentyQ</span>
+        </div>
+      </div>
+
+      <!-- core tech (left compact) -->
+      <div>
+        <div class="section-title"><i class="fas fa-code" style="margin-right: 8px;"></i> основной стек</div>
+        <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+          <span class="skill-tag"><i class="fab fa-python" style="margin-right: 6px;"></i>Python</span>
+          <span class="skill-tag"><i class="fas fa-copyright" style="margin-right: 6px;"></i>C++</span>
+          <span class="skill-tag"><i class="fab fa-html5" style="margin-right: 6px;"></i>HTML</span>
+          <span class="skill-tag"><i class="fas fa-tasks" style="margin-right: 6px;"></i>алгоритмы</span>
+          <span class="skill-tag"><i class="fas fa-laptop-code"></i> ООП</span>
+        </div>
+      </div>
+
+      <!-- языки -->
+      <div>
+        <div class="section-title"><i class="fas fa-language" style="margin-right: 8px;"></i> языки</div>
+        <div class="lang-item">
+          <span class="lang-name">Русский</span>
+          <span class="lang-level">родной</span>
+        </div>
+        <div class="lang-item">
+          <span class="lang-name">English</span>
+          <span class="lang-level">B1.2 / intermediate</span>
+        </div>
+      </div>
+
+      <!-- soft skills / личные качества -->
+      <div>
+        <div class="section-title"><i class="fas fa-brain" style="margin-right: 8px;"></i> фокус</div>
+        <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+          <span class="skill-tag">Быстрая обучаемость</span>
+          <span class="skill-tag">Внимательность</span>
+          <span class="skill-tag">Командная работа</span>
+          <span class="skill-tag">Cамообразование</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT PANEL – profile, detailed skills, projects, education -->
+    <div class="right-panel">
+
+      <!-- краткий профиль -->
+      <div>
+        <div class="right-section-title"><i class="fas fa-user-astronaut" style="margin-right: 8px;"></i> о себе</div>
+        <p class="profile-text">
+          Начинающий разработчик с фокусом на <strong>Python, C++ и HTML</strong>. Увлекаюсь написанием чистого, понятного кода и решением алгоритмических задач.
+          Постоянно учусь: прохожу онлайн-курсы, участвую в учебных проектах и читаю техническую литературу. Готова применить свои знания в стажировке или junior-позиции.
+        </p>
+      </div>
+
+      <!-- языки программирования: детальный блок (акцент на Python, C++, HTML) -->
+      <div>
+        <div class="right-section-title"><i class="fas fa-laptop-code" style="margin-right: 8px;"></i> компетенции</div>
+        <div class="skill-grid">
+          <div class="skill-chip"><i class="fab fa-python"></i> <strong>Python</strong> (core, OOP, базовые библиотеки)</div>
+          <div class="skill-chip"><i class="fas fa-copyright"></i> <strong>C++</strong> (STL, основы ООП, алгоритмы)</div>
+          <div class="skill-chip"><i class="fab fa-html5"></i> <strong>HTML5</strong> (семантическая вёрстка, доступность)</div>
+          <div class="skill-chip"><i class="fas fa-git-alt"></i> Git / GitHub</div>
+        </div>
+        <p style="font-size: 0.85rem; color: #4b5a6e; margin-top: 0.9rem;">
+          ✔ Python:  учебные проекты, парсинг, работа с файлами, функции. <br>
+          ✔ C++:    решение задач на Stepik, структуры данных, динамическая память. <br>
+          ✔ HTML:   адаптивные макеты, семантика, формы.
+        </p>
+      </div>
+
+      <!-- ОБРАЗОВАНИЕ / САМООБРАЗОВАНИЕ (подчёркиваем, что изучает именно эти технологии) -->
+      <div>
+        <div class="right-section-title"><i class="fas fa-graduation-cap" style="margin-right: 8px;"></i> образование и курсы</div>
+
+        <div class="edu-item">
+          <div class="edu-title">
+            <i class="fas fa-university" style="color: #3a5f8b;"></i> Университет ИТМО
+          </div>
+          <div class="edu-meta">2025 - ...</div>
+        </div>
+
+      <!-- ПРОЕКТЫ / ПОРТФОЛИО (учебные, с акцентом на Python, C++, HTML) -->
+      <div>
+        <div class="right-section-title"><i class="fas fa-folder-open" style="margin-right: 8px;"></i> учебные проекты</div>
+
+        <div class="project-item">
+          <div class="project-name">
+            <i class="fas fa-robot" style="color: #4f7092; margin-right: 10px;"></i> Telegram‑бот (Python)
+          </div>
+          <div class="project-desc">
+            Простой бот для проверки погоды и напоминаний. Использовала <strong>python-telegram-bot</strong>, requests, работа с API.
+          </div>
+        </div>
+
+        <div class="project-item">
+          <div class="project-name">
+            <i class="fas fa-calculator" style="color: #4f7092; margin-right: 10px;"></i> Калькулятор рациональных чисел (C++)
+          </div>
+          <div class="project-desc">
+            Консольное приложение: перегрузка операторов, работа с дробями, классы. ООП, CMake.
+          </div>
+        </div>
+
+        <div class="project-item">
+          <div class="project-name">
+            <i class="fas fa-globe" style="color: #4f7092; margin-right: 10px;"></i> Сайт-визитка (HTML + CSS)
+          </div>
+          <div class="project-desc">
+            Адаптивная страница с информацией о технологиях, которые я изучаю. Чистая семантика, Flexbox.
+          </div>
+        </div>
+        <hr>
+        <p style="font-size: 0.8rem; color: #62748c; font-style: italic; margin-top: 0.2rem;">
+          <i class="fas fa-code-branch"></i> Все проекты доступны на GitHub.
+        </p>
+      </div>
+
+      <!-- ДОПОЛНИТЕЛЬНО: личные качества/хобби (немного) -->
+      <div style="display: flex; gap: 1rem; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 0.8rem; margin-top: 0.4rem;">
+        <span style="display: flex; gap: 0.4rem; align-items: center; background: #f8fafd; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.8rem;"><i class="fas fa-book-open" style="color: #2c4c6b;"></i> Читаю tech‑блоги</span>
+        <span style="display: flex; gap: 0.4rem; align-items: center; background: #f8fafd; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.8rem;"><i class="fas fa-puzzle-piece"></i> Разработка игр</span>
+        <span style="display: flex; gap: 0.4rem; align-items: center; background: #f8fafd; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.8rem;"><i class="fas fa-paint-brush"></i> Писательство</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- небольшой footer — чисто для эстетики (необязательно) -->
+  <div style="text-align: center; margin-top: 1rem; font-size: 0.7rem; color: #5e6f88; max-width: 1000px; width: 100%;">
+    Анастасия Данилова — резюме · Python · C++ · HTML
+  </div>
 </body>
 </html>
