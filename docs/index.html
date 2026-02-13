@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Анастасия Данилова · резюме</title>
-  <!-- Google Fonts for modern, clean typography -->
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <!-- Font Awesome 6 (free) for subtle icons -->
+  <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     /* reset & base */
@@ -21,6 +21,7 @@
       font-family: 'Inter', sans-serif;
       padding: 2rem 1rem;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
@@ -37,10 +38,9 @@
       display: grid;
       grid-template-columns: 0.95fr 2.1fr;
       overflow: hidden;
-      transition: all 0.2s ease;
     }
 
-    /* ---------- LEFT PANEL (elegant dark) ---------- */
+    /* ---------- LEFT PANEL ---------- */
     .left-panel {
       background: #1f2a40;
       color: #f0f3fa;
@@ -80,7 +80,6 @@
       margin-top: 0.5rem;
     }
 
-    /* section headers in left panel */
     .section-title {
       font-size: 0.8rem;
       text-transform: uppercase;
@@ -92,7 +91,6 @@
       padding-bottom: 0.5rem;
     }
 
-    /* contact / languages / core skills */
     .contact-item {
       display: flex;
       align-items: center;
@@ -116,7 +114,6 @@
       font-weight: 400;
       color: #f0f3fa;
       border: 0.5px solid rgba(255,255,255,0.08);
-      margin-bottom: 0.5rem;
       display: inline-block;
     }
 
@@ -128,10 +125,6 @@
       margin-bottom: 0.6rem;
     }
 
-    .lang-name {
-      font-weight: 400;
-    }
-
     .lang-level {
       font-size: 0.75rem;
       background: rgba(255,255,255,0.08);
@@ -139,7 +132,7 @@
       border-radius: 24px;
     }
 
-    /* ---------- RIGHT PANEL (clean light) ---------- */
+    /* ---------- RIGHT PANEL ---------- */
     .right-panel {
       background: white;
       padding: 2rem 2.2rem;
@@ -159,15 +152,12 @@
       margin-bottom: 0.2rem;
     }
 
-    /* profile text */
     .profile-text {
       font-size: 0.95rem;
       line-height: 1.6;
       color: #334155;
-      font-weight: 400;
     }
 
-    /* skill cards in right panel — visual & clean */
     .skill-grid {
       display: flex;
       flex-wrap: wrap;
@@ -186,7 +176,6 @@
       align-items: center;
       gap: 0.5rem;
       border: 1px solid #e9edf4;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.01);
     }
 
     .skill-chip i {
@@ -198,7 +187,6 @@
       margin-right: 0.2rem;
     }
 
-    /* education / self-learning */
     .edu-item {
       display: flex;
       flex-direction: column;
@@ -247,12 +235,6 @@
       margin: 0.4rem 0;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    /* responsiveness */
     @media (max-width: 750px) {
       .resume-card {
         grid-template-columns: 1fr;
@@ -265,8 +247,7 @@
 </head>
 <body>
   <div class="resume-card">
-
-    <!-- LEFT PANEL – name, contact, core skills, languages -->
+    <!-- LEFT PANEL -->
     <div class="left-panel">
       <div class="name-title">
         <div class="name">Анастасия<br>Данилова</div>
@@ -294,7 +275,7 @@
         </div>
       </div>
 
-      <!-- core tech (left compact) -->
+      <!-- core tech -->
       <div>
         <div class="section-title"><i class="fas fa-code" style="margin-right: 8px;"></i> основной стек</div>
         <div style="display: flex; flex-wrap: wrap; gap: 6px;">
@@ -319,7 +300,7 @@
         </div>
       </div>
 
-      <!-- soft skills / личные качества -->
+      <!-- soft skills -->
       <div>
         <div class="section-title"><i class="fas fa-brain" style="margin-right: 8px;"></i> фокус</div>
         <div style="display: flex; flex-wrap: wrap; gap: 6px;">
@@ -331,10 +312,9 @@
       </div>
     </div>
 
-    <!-- RIGHT PANEL – profile, detailed skills, projects, education -->
+    <!-- RIGHT PANEL -->
     <div class="right-panel">
-
-      <!-- краткий профиль -->
+      <!-- о себе -->
       <div>
         <div class="right-section-title"><i class="fas fa-user-astronaut" style="margin-right: 8px;"></i> о себе</div>
         <p class="profile-text">
@@ -343,7 +323,7 @@
         </p>
       </div>
 
-      <!-- языки программирования: детальный блок (акцент на Python, C++, HTML) -->
+      <!-- компетенции -->
       <div>
         <div class="right-section-title"><i class="fas fa-laptop-code" style="margin-right: 8px;"></i> компетенции</div>
         <div class="skill-grid">
@@ -353,24 +333,24 @@
           <div class="skill-chip"><i class="fas fa-git-alt"></i> Git / GitHub</div>
         </div>
         <p style="font-size: 0.85rem; color: #4b5a6e; margin-top: 0.9rem;">
-          ✔ Python:  учебные проекты, парсинг, работа с файлами, функции. <br>
-          ✔ C++:    решение задач на Stepik, структуры данных, динамическая память. <br>
-          ✔ HTML:   адаптивные макеты, семантика, формы.
+          ✔ Python: учебные проекты, парсинг, работа с файлами, функции. <br>
+          ✔ C++: решение задач на Stepik, структуры данных, динамическая память. <br>
+          ✔ HTML: адаптивные макеты, семантика, формы.
         </p>
       </div>
 
-      <!-- ОБРАЗОВАНИЕ / САМООБРАЗОВАНИЕ (подчёркиваем, что изучает именно эти технологии) -->
+      <!-- образование -->
       <div>
         <div class="right-section-title"><i class="fas fa-graduation-cap" style="margin-right: 8px;"></i> образование и курсы</div>
-
         <div class="edu-item">
           <div class="edu-title">
             <i class="fas fa-university" style="color: #3a5f8b;"></i> Университет ИТМО
           </div>
-          <div class="edu-meta">2025 - ...</div>
+          <div class="edu-meta">2025 - настоящее время</div>
         </div>
+      </div>
 
-      <!-- ПРОЕКТЫ / ПОРТФОЛИО (учебные, с акцентом на Python, C++, HTML) -->
+      <!-- проекты -->
       <div>
         <div class="right-section-title"><i class="fas fa-folder-open" style="margin-right: 8px;"></i> учебные проекты</div>
 
@@ -406,16 +386,22 @@
         </p>
       </div>
 
-      <!-- ДОПОЛНИТЕЛЬНО: личные качества/хобби (немного) -->
-      <div style="display: flex; gap: 1rem; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 0.8rem; margin-top: 0.4rem;">
-        <span style="display: flex; gap: 0.4rem; align-items: center; background: #f8fafd; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.8rem;"><i class="fas fa-book-open" style="color: #2c4c6b;"></i> Читаю tech‑блоги</span>
-        <span style="display: flex; gap: 0.4rem; align-items: center; background: #f8fafd; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.8rem;"><i class="fas fa-puzzle-piece"></i> Разработка игр</span>
-        <span style="display: flex; gap: 0.4rem; align-items: center; background: #f8fafd; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.8rem;"><i class="fas fa-paint-brush"></i> Писательство</span>
+      <!-- хобби -->
+      <div style="display: flex; gap: 1rem; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 0.8rem;">
+        <span style="display: flex; gap: 0.4rem; align-items: center; background: #f8fafd; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.8rem;">
+          <i class="fas fa-book-open" style="color: #2c4c6b;"></i> Читаю tech‑блоги
+        </span>
+        <span style="display: flex; gap: 0.4rem; align-items: center; background: #f8fafd; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.8rem;">
+          <i class="fas fa-puzzle-piece"></i> Разработка игр
+        </span>
+        <span style="display: flex; gap: 0.4rem; align-items: center; background: #f8fafd; padding: 0.3rem 1rem; border-radius: 40px; font-size: 0.8rem;">
+          <i class="fas fa-paint-brush"></i> Писательство
+        </span>
       </div>
     </div>
   </div>
 
-  <!-- небольшой footer — чисто для эстетики (необязательно) -->
+  <!-- footer -->
   <div style="text-align: center; margin-top: 1rem; font-size: 0.7rem; color: #5e6f88; max-width: 1000px; width: 100%;">
     Анастасия Данилова — резюме · Python · C++ · HTML
   </div>
